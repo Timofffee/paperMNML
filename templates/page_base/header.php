@@ -1,19 +1,3 @@
-<?
-    $user = [];
-    if ($is_logged) {
-        $user = $database->select("user", [
-            "user_id",
-            "login",
-            "email",
-            "role",
-            "reg_date",
-            "avatar"
-        ], [
-            "user_id" => $_COOKIE['uid']
-        ])[0];
-    }
-?>
-
 <header class="is-top bg-dark is-fixed" style="top:0; width:100%;">
     <nav class="nav container is-center ">
         <div class="nav-left">
@@ -23,15 +7,6 @@
             <a class="brand row hide-sm hide-md hide-lg" href="/">
                 pprMNML
             </a>
-            <!-- <a>
-                <b>Горячее</b>
-            </a>
-            <a href="/new">
-                <b>Свежее</b>
-            </a>
-            <a href="/community">
-                <b>Сообщества</b>
-            </a> -->
         </div>
 
         <div class="nav-right">
@@ -45,15 +20,15 @@
                 <img class="is-rounded" src="https://icongr.am/fontawesome/bell-o.svg?size=20&color=d2d6dd" />
             </a> -->
             
-            <? if (empty($user)): ?>
+            <? if (empty($_USER)): ?>
             <a class="button avatar small clear bg-grey is-paddingless is-rounded">
 
                 <img class="is-rounded avatar-img" src="/img/default_avatar.jpg"/>
             </a>
             <? else: ?>
-                <a href="/@<?=$user[login]?>" class="button avatar small clear bg-grey is-paddingless is-rounded">
+                <a href="/@<?=$_USER[login]?>" class="button avatar small clear bg-grey is-paddingless is-rounded">
 
-                    <img class="is-rounded avatar-img" src="<?=($user[avatar] != null) ? $user[avatar] : "/img/default_avatar.jpg"?>"/>
+                    <img class="is-rounded avatar-img" src="<?=($_USER[avatar] != null) ? $_USER[avatar] : "/img/default_avatar.jpg"?>"/>
                 </a>
             <? endif; ?>
         </div>

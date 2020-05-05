@@ -53,8 +53,13 @@
                 $('#panel-auth-login-error').text("Incorrect login or password");
             } else if(response.data.status == 0) {
                 let data = response.data.data;
-                document.cookie = "sid="+data.sid+"; max-age="+(60*60*24*30)+";path=/";
-                document.cookie = "uid="+data.uid+"; max-age="+(60*60*24*30)+";path=/";
+                let props = {
+                    path: "/",
+                    expires: 60*60*24*30,
+                    secure: true
+                };
+                setCookie("sid", data.sid, props);
+                setCookie("uid", data.uid, props);
                 location.reload(true);
             } 
         })

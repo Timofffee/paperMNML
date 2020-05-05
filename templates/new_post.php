@@ -1,22 +1,4 @@
-<? require_once("db.php"); ?> 
-<!DOCTYPE html>
-<html lang="en">
 
-<? 
-$_HEAD = [
-    "title" => "New post",
-    "description" => ""
-];
-require_once("templates/head.php"); ?>
-
-<body class="bg-light">
-    <? require_once("templates/header.php"); ?>
-    <main style="margin-top: 6rem" class="container">
-        
-        <div class="row reverse">
-            <? require_once("templates/side-panel.php"); ?>
-            <!-- wall -->
-            <div class="col col-9-md">
                 <div class="card">
                     <h1>New post</h1>
                     <p class="text-error">I'm sorry, but most of the editor functions are currently unavailable.</p>
@@ -27,11 +9,7 @@ require_once("templates/head.php"); ?>
                         <button class="col-" type="submit">Create post</button>
                     </form>
                 </div>
-            </div>
-        </div>
-    </main>
 
-<script src="/js/maintainscroll.js"></script>
 <script>
     function getCookie(name) {
 
@@ -75,4 +53,3 @@ require_once("templates/head.php"); ?>
     }
 </script>
 
-</body>
